@@ -9,11 +9,29 @@ ls *[[:digit:]]*
 if [ -d $1 ]
 then
 	rm -r $1
-else
+fi
+if [ ! -d $1 ]
+then
 	mkdir $1
 	for FILE in *.sh
 	do
-		echo "copying files.."
+		echo "copying file $FILE"
 		cp $FILE $1
 	done
 fi
+
+VAR2="hello"
+if [ "$VAR"="hello" ]
+then
+	echo "true"
+fi
+
+case "$VAR2" in 
+	"hello_")
+		echo "hello_"
+		;;
+	"hello")
+		echo "hello"
+		;;
+esac
+
